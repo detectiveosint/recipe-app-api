@@ -1,5 +1,5 @@
-FROM python:3.7-alpine
-MAINTAINER Jon Kalleja.
+FROM python:3.8-alpine
+LABEL name="Jon Kalleja"
 
 ENV PYTHONUNBUFFERED 1
 
@@ -12,5 +12,6 @@ RUN mkdir /app
 WORKDIR /app
 COPY ./app/ /app
 
+# Secure the docker container by avoiding default root user
 RUN adduser -D user
 USER user
